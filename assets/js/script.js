@@ -3,6 +3,17 @@ let time = 60;
 let score = 0;
 let clockId;
 
+const startTimer = () => {
+    time--;
+
+    if(time < 1) {
+        clearInterval(clockId);
+        time = 0;
+        endQuiz();
+    }
+    clock.innerHTML = time;
+};
+
 let questions = [
     {
         Q: 'What is the key word to create a variable?',
@@ -26,15 +37,7 @@ let questions = [
     }
     ];
 
-const startTimer = () => {
-    time--;
 
-    if(time < 1) {
-        clearInterval(clockId);
-        time = 0;
-        endQuiz();
-    }
-};
 
 const handleQuestions = () => {
     if (QIndex == questions.length)
@@ -50,7 +53,6 @@ const handleQuestions = () => {
 }
 
 const beginQuiz = () => {
-    console.log('you clicked me')
     handleQuestions();
     clockId = setInterval(startTimer, 1000)
 
@@ -58,6 +60,4 @@ const beginQuiz = () => {
 
 
 
-
-
-start.addEventListener('click', beginQuiz)
+begin.addEventListener('click', beginQuiz)
