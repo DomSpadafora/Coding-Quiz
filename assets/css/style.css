@@ -2,7 +2,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: lightgray;
+    background: #C8E0F4;
     padding: 0 10px;
 }
 
@@ -11,9 +11,15 @@ div {
     text-align: center;
     margin: auto;
     margin-top: 20%;
-    background-color: rgba(62, 62, 197, 0.66);
+    background-color: #C8E0F4;
     border-radius: 15px;
     box-shadow: 10px 10px 10px ;
-    padding: 1rem;
-    
+    padding: 1rem; 
+}
+
+button {
+    border-radius: 10px;
+    background-color: #031927;
+    color: white;
+
 }

@@ -1,8 +1,14 @@
-var QIndex = 0;
+let QIndex = 0;
+let time = 60;
+let score = 0;
 
 
-var questions = [
-    {
+const startTimer = () => {
+    time--;
 
+    if(time < 1) {
+        clearInterval(clockId);
+        time = 0;
+        endQuiz();
     }
-]
+};
