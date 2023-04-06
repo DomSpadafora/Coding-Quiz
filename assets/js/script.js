@@ -1,6 +1,7 @@
 let QIndex = 0;
 let time = 60;
 let score = 0;
+let clockId;
 
 let questions = [
     {
@@ -36,12 +37,21 @@ const startTimer = () => {
 };
 
 const handleQuestions = () => {
+    if (QIndex == questions.length)
+        return endQuiz();
+
+    let { Q, A } = questions[QIndex];
+    card.innerHTML = `<h1>${Q}</h1><div id="answers"></div>`;
+
+    A.forEach(ans => {
+        answers.innerHTML += `<button onclick = "handleAnswers('${ans}')" class="answers">${ans}</button>`
+    });
 
 }
 
 const beginQuiz = () => {
     console.log('you clicked me')
-    questions();
+    handleQuestions();
     clockId = setInterval(startTimer, 1000)
 
 }
