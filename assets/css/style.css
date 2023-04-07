@@ -7,7 +7,7 @@ nav {
 }
 
 div {
-    width: 40%;
+    width: 50%;
     text-align: center;
     margin: auto;
     margin-top: 20%;
@@ -22,4 +22,11 @@ button {
     background-color: #031927;
     color: white;
 
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
 }

@@ -17,8 +17,8 @@ const startTimer = () => {
 let questions = [
     {
         Q: 'What is the key word to create a variable?',
-        A: ['HTML', 'CSS', 'var', 'flexbox'],
-        C: 'var',
+        A: ['const', 'let', 'var', 'all the above'],
+        C: 'all the above',
     },
     {
         Q: 'Which coding language is considered the foundation/structure of a webpage?',
@@ -50,6 +50,11 @@ const handleQuestions = () => {
         answers.innerHTML += `<button onclick = "handleAnswers('${ans}')" class="answers">${ans}</button>`
     });
 
+}
+
+const handleCorrect = () => {
+    correct.style.display = 'block';
+    setTimeout(()=>correct.style.display = 'none', 1000);
 }
 
 const beginQuiz = () => {
