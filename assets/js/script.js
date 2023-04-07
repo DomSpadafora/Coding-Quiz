@@ -39,6 +39,26 @@ let questions = [
 
 
 
+
+
+const handleCorrect = () => {
+    correct.style.display = 'block';
+    setTimeout(()=>correct.style.display = 'none', 1000);
+}
+
+const handleIncorrect = () => {
+    time -=10;
+    clock.innerHTML = time;
+    incorrect.style.display = 'block'; 
+    setTimeout(()=>incorrect.style.display = 'none', 1000);
+};
+
+const handleAnswers = answer => {
+    answer==questions[QIndex].C ? handleCorrect() : handleIncorrect();
+    QIndex++;
+    handleQuestions();
+};
+
 const handleQuestions = () => {
     if (QIndex == questions.length)
         return endQuiz();
@@ -52,9 +72,19 @@ const handleQuestions = () => {
 
 }
 
-const handleCorrect = () => {
-    correct.style.display = 'block';
-    setTimeout(()=>correct.style.display = 'none', 1000);
+const endQuiz = () => {
+    clearInterval(clockId);
+    main.innerHTML = `
+        <div id="initialsDiv">
+            <h1>All Done!!!</h1>
+            <h4>Your score: ${time}</h4>
+            <h4>Enter your initials:</h4> 
+            <input id='initials' placeholder="AAA"></input>
+            <br>
+            <button onclick="handleInitials()">Done</button>
+        </div>
+    `;
+    console.log('end of quiz')
 }
 
 const beginQuiz = () => {
