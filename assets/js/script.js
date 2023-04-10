@@ -69,12 +69,11 @@ const handleQuestions = () => {
     A.forEach(ans => {
         answers.innerHTML += `<button onclick = "handleAnswers('${ans}')" class="answers">${ans}</button>`
     });
-
 }
 
 const endQuiz = () => {
     clearInterval(clockId);
-    main.innerHTML = `
+    card.innerHTML = `
         <div id="initialsDiv">
             <h1>All Done!!!</h1>
             <h4>Your score: ${time}</h4>

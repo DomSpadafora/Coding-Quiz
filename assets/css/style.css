@@ -13,11 +13,16 @@ div {
     width: 50%;
     text-align: center;
     margin: auto;
-    margin-top: 20%;
+    margin-top: 10%;
     background-color: #C8E0F4;
     border-radius: 15px;
     box-shadow: 10px 10px 10px ;
-    padding: 1rem; 
+    padding:5%  
+}
+
+#initialsDiv {
+    margin: auto;
+   
 }
 
 button {
