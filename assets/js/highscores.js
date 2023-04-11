@@ -1,17 +1,28 @@
-let store = localStorage.highscores ? JSON.parse(localStorage.highscores) : [];
+const displayScores = () => {
+    let store = localStorage.highscores ? JSON.parse(localStorage.highscores) : [];
 
-if(store.length) {
-    for (let i = 0; i < store.length; i++) {
-        let {index, initials,score} = store[i];
-        store.sort((a, b) => b.score - a.score);
+    if (store.length) {
+        store.sort((a, b) => b.score - a.score); // sort from highest to lowest
 
-        document.querySelector('tbody').innerHTML += `
-            <tr>
-                <td>${index}</td>
-                <td>${initials}</td>
-                <td>${score}</td>
-            </tr>
-        
-        `;
+        for (let i = 0; i < store.length; i++) {
+            let { initials, score } = store[i];
+
+            document.querySelector('tbody').innerHTML += `
+                <tr>
+                    <td>${initials}</td>
+                    <td>${score}</td>
+                </tr>
+            `;
+        }
     }
+};
+
+const clearScores = () => {
+    window.localStorage.clear();
+    document.querySelector('tbody').innerHTML = ''; // clear the table body
+    displayScores(); // call the function to render an empty table
 }
+
+displayScores()
+
+clearHighScores.addEventListener('click', clearScores);

@@ -91,9 +91,7 @@ const handleInitials = () => {
     if(!name) return alert('Need intials')
 
     let store = localStorage.highscores ? JSON.parse(localStorage.highscores) : [];
-    store.sort((a, b) => a.score > b.score ? -1 : 1);
-    console.log('trying to sort')
-    store.push({initials:name,score:time});
+    store.push({initials:name, score:time});
     localStorage.highscores = JSON.stringify(store);
     window.location = 'highscores.html'
     
